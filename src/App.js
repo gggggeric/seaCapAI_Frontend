@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import ContactUs from './Components/Contact/ContactUs';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<ContactUs/>} /> 
+            <Route path="/contactUs" element={<ContactUs />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
-
+//Palitan ng Home yung "/" BINGGOOOOOT
 export default App;
