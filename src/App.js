@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ContactUs from './Components/Contact/ContactUs';
+import FAQ from './Components/Contact/FAQ';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ContactUs/>} /> 
             <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/FAQ" element={<FAQ />} />
           </Routes>
         </main>
       </div>
