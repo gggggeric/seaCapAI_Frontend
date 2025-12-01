@@ -11,3 +11,145 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* SeaCap AI Brand Colors */
+    --brand-gold: 38 67% 55%;        /* #d29746 */
+    --brand-navy: 210 49% 26%;       /* #203c5f */
+    --brand-teal: 177 39% 58%;       /* #64c3be */
+    --brand-slate: 198 20% 49%;      /* #618593 */
+    
+    /* Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 210 49% 26%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 49% 26%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 49% 26%;
+
+    --primary: 38 67% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 49% 26%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 198 20% 49%;
+
+    --accent: 177 39% 58%;
+    --accent-foreground: 210 49% 26%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 38 67% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(38 67% 55%), hsl(38 67% 45%));
+    --gradient-navy: linear-gradient(135deg, hsl(210 49% 26%), hsl(210 49% 16%));
+    --gradient-teal: linear-gradient(135deg, hsl(177 39% 58%), hsl(177 39% 48%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 49% 16% / 0.95), hsl(198 20% 49% / 0.95));
+    
+    /* Shadows */
+    --shadow-gold: 0 10px 40px -10px hsl(38 67% 55% / 0.3);
+    --shadow-navy: 0 10px 40px -10px hsl(210 49% 26% / 0.3);
+    --shadow-card: 0 4px 20px hsl(210 49% 26% / 0.08);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 210 49% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 49% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 49% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 38 67% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 177 39% 58%;
+    --secondary-foreground: 210 49% 10%;
+
+    --muted: 210 49% 18%;
+    --muted-foreground: 198 20% 65%;
+
+    --accent: 177 39% 58%;
+    --accent-foreground: 210 49% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 49% 20%;
+    --input: 210 49% 20%;
+    --ring: 38 67% 55%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 49% 8% / 0.95), hsl(198 20% 20% / 0.95));
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  }
+  
+  .bg-gradient-gold {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-navy {
+    background: var(--gradient-navy);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-navy {
+    box-shadow: var(--shadow-navy);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
